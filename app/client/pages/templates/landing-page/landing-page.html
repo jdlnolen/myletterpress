@@ -1,0 +1,22 @@
+<template name="landing-page">
+
+    {{#unless currentUser}}
+    <header>
+        {{#markdown}}{{description}}{{/markdown}}
+    </header>
+    {{/unless}}
+
+    {{#if currentUser}}
+        {{#markdown}}{{premiumContent}}{{/markdown}}
+    {{/if}}
+
+    <section class="toc">
+        {{#each chapters}}
+            <div class="chapter">
+                <h3><a href="{{path}}" title="{{title}}">{{title}}</a></h3>
+                {{#markdown}}{{description}}{{/markdown}}
+            </div>
+        {{/each}}
+    </section>
+
+</template>
